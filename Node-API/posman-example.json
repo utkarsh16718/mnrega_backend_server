@@ -1,638 +1,491 @@
 {
 	"info": {
-		"_postman_id": "b82598d1-5f65-4310-bf0e-ba31414862b1",
-		"name": "api node mongo jwt",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "b2a37d4f-4785-4788-bc02-f0e630a9c04f",
+		"name": "Latest Node js",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22269957"
 	},
 	"item": [
 		{
-			"name": "auth",
-			"item": [
-				{
-					"name": "/register",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "My Name",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "my@email.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "12345",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{server}}/register",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/verify",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "id",
-									"value": "b98b1dea-b3f4-4b72-bcdf-9d36607e2603",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{server}}/verify",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"verify"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/forgot",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "admin@admin.com",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{server}}/forgot",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"forgot"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/reset",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "id",
-									"value": "f5b08991-02fc-4f3d-9a32-6d703bef5c57",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "12345",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{server}}/reset",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"reset"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/login",
-					"event": [
+			"name": "http://localhost:3000/markAttendence",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "76965795-61c0-4767-8b82-8dc56635b784",
-								"exec": [
-									"//- auto populates token to environment variables",
-									"pm.test(\"Token returned from login, added to environment.\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"token\");",
-									"    const jsonData = pm.response.json();",
-									"    pm.environment.set('authToken', jsonData.token);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "supervisorId",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "dateTime",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "WorkLocation",
+							"value": "mit",
+							"type": "text"
+						},
+						{
+							"key": "workId",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "groupPhotoUrl",
+							"value": "www.google.com",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "gkwjn",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "superviserId",
+							"value": "eggg",
+							"type": "text",
+							"disabled": true
 						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/markAttendence",
+					"protocol": "http",
+					"host": [
+						"localhost"
 					],
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "admin@admin.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "12345",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{server}}/login",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/token",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							}
-						],
-						"url": {
-							"raw": "{{server}}/token",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"token"
-							]
-						}
-					},
-					"response": []
+					"port": "3000",
+					"path": [
+						"markAttendence"
+					]
 				}
-			]
+			},
+			"response": []
 		},
 		{
-			"name": "users",
-			"item": [
-				{
-					"name": "/users",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							}
-						],
-						"url": {
-							"raw": "{{server}}/users?filter=ad&fields=name,email&page=1&limit=10&sort=name&order=-1",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"users"
-							],
-							"query": [
-								{
-									"key": "filter",
-									"value": "ad"
-								},
-								{
-									"key": "fields",
-									"value": "name,email"
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "limit",
-									"value": "10"
-								},
-								{
-									"key": "sort",
-									"value": "name"
-								},
-								{
-									"key": "order",
-									"value": "-1"
-								}
-							]
+			"name": "http://localhost:3000/getEmployeeProfile?empId=9",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/getEmployeeProfile?empId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getEmployeeProfile"
+					],
+					"query": [
+						{
+							"key": "empId",
+							"value": "1"
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "/users",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "New User",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "myemail@email.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "12345",
-									"type": "text"
-								},
-								{
-									"key": "role",
-									"value": "admin",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "123123",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "Bucaramamga",
-									"type": "text"
-								},
-								{
-									"key": "country",
-									"value": "Colombia",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{server}}/users",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/users/:id",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{server}}/users/5aab2443ef417d2d19e6c8f2",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"users",
-								"5aab2443ef417d2d19e6c8f2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/users/:id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							}
-						],
-						"url": {
-							"raw": "{{server}}/users/5aa1c2c35ef7a4e97b5e995a",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"users",
-								"5aa1c2c35ef7a4e97b5e995a"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/users/:id",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "New Name",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "new@email.com",
-									"type": "text"
-								},
-								{
-									"key": "role",
-									"value": "admin",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "12345",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "Cali",
-									"type": "text"
-								},
-								{
-									"key": "country",
-									"value": "Colombia",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:3000/users/5aa1c2c35ef7a4e97b5e995a?",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								"5aa1c2c35ef7a4e97b5e995a"
-							],
-							"query": [
-								{
-									"key": "sort",
-									"value": "id ASC",
-									"disabled": true
-								},
-								{
-									"key": "skip",
-									"value": "3",
-									"disabled": true
-								},
-								{
-									"key": "where",
-									"value": "{ 'email' : { startsWith : 'f' } }",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
+					]
 				}
-			]
+			},
+			"response": []
 		},
 		{
-			"name": "profile",
-			"item": [
-				{
-					"name": "/profile",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							}
-						],
-						"url": {
-							"raw": "{{server}}/profile",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"profile"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/profile",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "My Name",
-									"type": "text"
-								},
-								{
-									"key": "urlTwitter",
-									"value": "https://hello.com",
-									"type": "text"
-								},
-								{
-									"key": "urlGitHub",
-									"value": "https://hello.io",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "444444",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "Boston2",
-									"type": "text"
-								},
-								{
-									"key": "country",
-									"value": "Colombia2",
-									"type": "text"
-								}
-							]
+			"name": "http://localhost:3000/registerEmployee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "adarsh Utkarsh Tiwari",
+							"type": "text"
 						},
-						"url": {
-							"raw": "{{server}}/profile",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"profile"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/profile/changePassword",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "oldPassword",
-									"value": "12345",
-									"type": "text"
-								},
-								{
-									"key": "newPassword",
-									"value": "12345",
-									"type": "text"
-								}
-							]
+						{
+							"key": "empId",
+							"value": "1",
+							"type": "text"
 						},
-						"url": {
-							"raw": "{{server}}/profile/changePassword",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"profile",
-								"changePassword"
-							]
+						{
+							"key": "middleName",
+							"value": "huk",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "lastName",
+							"value": "drhd",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "aadharNumber",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "9631464544",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "muzaffarpure",
+							"type": "text"
+						},
+						{
+							"key": "supervisorId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "workId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "doB",
+							"value": "14032002",
+							"type": "text"
 						}
-					},
-					"response": []
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/registerEmployee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"registerEmployee"
+					]
 				}
-			]
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/changeSupervisor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "empId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "supervisorId",
+							"value": "1118",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/changeSupervisor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"changeSupervisor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/addWork",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "workId",
+							"value": "114",
+							"type": "text"
+						},
+						{
+							"key": "workDesciption",
+							"value": "NH",
+							"type": "text"
+						},
+						{
+							"key": "workLocation",
+							"value": "MIT",
+							"type": "text"
+						},
+						{
+							"key": "supervisorId",
+							"value": "12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/addWork",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addWork"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/supervisorRegistration",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "utkarsh",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "utkarsh",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "utkarsh",
+							"type": "text"
+						},
+						{
+							"key": "superviserId",
+							"value": "utkar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/supervisorRegistration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"supervisorRegistration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/getAttachedWork?workingSuperviserId=12",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/getAttachedWork?supervisorId=12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getAttachedWork"
+					],
+					"query": [
+						{
+							"key": "supervisorId",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/markAttendence",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"attendanceId\":\"4d886cb8427ac74d7cd0701315b35435\",\r\n        \"presentemployeeIds\": [2,5,6]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/markAttendence",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"markAttendence"
+					],
+					"query": [
+						{
+							"key": "attendanceId",
+							"value": "5d4131c13b536c3240172f81d2d7f6d2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/registrationStatus?empId=871",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/registrationStatus?empId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"registrationStatus"
+					],
+					"query": [
+						{
+							"key": "empId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/AssignWorkToSupervisor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "workId",
+							"value": "114",
+							"type": "text"
+						},
+						{
+							"key": "supervisorId",
+							"value": "utkarsh",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/AssignWorkToSupervisor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"AssignWorkToSupervisor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/getEmployeeAttendence?empId=5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/getEmployeeAttendence?empId=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getEmployeeAttendence"
+					],
+					"query": [
+						{
+							"key": "empId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/getMyEmployeesAttendence?workId=3&supervisorId=3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/getMyEmployeesAttendence?workId=3&supervisorId=3&dateTime=2022-08-20T07:58:03.493Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getMyEmployeesAttendence"
+					],
+					"query": [
+						{
+							"key": "workId",
+							"value": "3"
+						},
+						{
+							"key": "supervisorId",
+							"value": "3"
+						},
+						{
+							"key": "dateTime",
+							"value": "2022-08-20T07:58:03.493Z"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
