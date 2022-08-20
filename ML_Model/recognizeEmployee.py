@@ -10,24 +10,36 @@ import csv
 import sys
 import json
 import requests
+import wget
 
-image_path = sys.argv[0]
-attendanceId = sys.argv[1]
+image_url = sys.argv[1]
+attendanceId = sys.argv[2]
+
+try:
+    os.mkdir("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/tmp")
+except FileExistsError:
+    # directory already exists
+    pass
+
+image_path = "/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/tmp/image_path.jpg"
+image = wget.download(str(image_url),image_path)
 
 
-with open("label.csv") as f:
+with open("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/label.csv") as f:
     reader = csv.reader(f)
     my_list = list(reader)
     classes = my_list[0]
 
 detector = MTCNN()
-model = load_model("face_rec_model.h5")
+model = load_model("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/face_rec_model.h5")
 
 img = image_path
+img = cv2.imread(img)
+
 present_employees_ids = []
 output = detector.detect_faces(img)
 
-cv2.imshow("window",img)
+# cv2.imshow("window",img)
 print(output)
 
 print(len(output))
@@ -57,5 +69,7 @@ response = requests.put(url = 'http://127.0.0.1:3000/markAttendence',
                             "presentemployeeIds": present_employees_ids
                             }
                         )
+print(present_employees_ids)
+os.remove(image_path)
 
 
