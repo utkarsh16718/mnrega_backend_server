@@ -132,7 +132,7 @@ describe('*********** USERS ***********', () => {
         .end((err, res) => {
           res.should.have.status(201)
           res.body.should.be.a('object')
-          res.body.should.include.keys('_id', 'name', 'email', 'verification')
+          res.body.should.include.keys('_id', 'name', 'empId', 'verification')
           createdID.push(res.body._id)
           done()
         })
@@ -282,7 +282,7 @@ describe('*********** USERS ***********', () => {
         .end((err, res) => {
           res.should.have.status(201)
           res.body.should.be.a('object')
-          res.body.should.include.keys('_id', 'name', 'email', 'verification')
+          res.body.should.include.keys('_id', 'name', 'empId', 'verification')
           chai
             .request(server)
             .delete(`/users/${res.body._id}`)

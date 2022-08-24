@@ -49,7 +49,7 @@ describe('*********** PROFILE ***********', () => {
         .end((err, res) => {
           res.should.have.status(200)
           res.body.should.be.an('object')
-          res.body.should.include.keys('name', 'email')
+          res.body.should.include.keys('name', 'empId')
           done()
         })
     })

@@ -12,7 +12,7 @@ const validateCreateUser = [
     .not()
     .isEmpty()
     .withMessage('IS_EMPTY'),
-  check('email')
+  check('empId')
     .exists()
     .withMessage('MISSING')
     .not()

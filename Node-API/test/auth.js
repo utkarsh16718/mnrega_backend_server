@@ -123,7 +123,7 @@ describe('*********** AUTH ***********', () => {
         .end((err, res) => {
           res.should.have.status(200)
           res.body.should.be.an('object')
-          res.body.should.include.keys('email', 'verified')
+          res.body.should.include.keys('empId', 'verified')
           res.body.verified.should.equal(true)
           done()
         })

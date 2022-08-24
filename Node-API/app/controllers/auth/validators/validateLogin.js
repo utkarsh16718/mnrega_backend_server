@@ -8,7 +8,7 @@ const { check } = require('express-validator')
  * Validates login request
  */
 const validateLogin = [
-  check('email')
+  check('empId')
     .exists()
     .withMessage('MISSING')
     .not()

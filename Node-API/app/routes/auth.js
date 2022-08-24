@@ -16,47 +16,44 @@ const {
   login,
   roleAuthorization
 } = require('../controllers/auth')
-const markAttendence=require('../controllers/auth/markAttendence')
+const markAttendence = require('../controllers/auth/markAttendence')
 
-const date=require('../controllers/auth/date')
+const date = require('../controllers/auth/date')
 
-const addWork=require('../controllers/auth/addWork')
+const addWork = require('../controllers/auth/addWork')
 
-const getWorkDetails =require('../controllers/auth/gettWorkDetails')
+const getWorkDetails = require('../controllers/auth/gettWorkDetails')
 
-const getAttachedWork=require('../controllers/auth/getAttachedWork')
+const getAttachedWork = require('../controllers/auth/getAttachedWork')
 
-const getAttendence=require('../controllers/auth/getEmployeeAttendence')
+const getAttendence = require('../controllers/auth/getEmployeeAttendence')
 
-const getMyEmployeesAttendence=require('../controllers/auth/getMyEmployeesAttendence')
+const getMyEmployeesAttendence = require('../controllers/auth/getMyEmployeesAttendence')
 
-const getEmployeeProfile=require('../controllers/auth/getEmployeeProfile')
+const getEmployeeProfile = require('../controllers/auth/getEmployeeProfile')
 
-const registerEmployee=require('../controllers/auth/registerEmployee')
+const registerEmployee = require('../controllers/auth/registerEmployee')
 
-const registrationStatus=require('../controllers/auth/registrationStatus')
+const registrationStatus = require('../controllers/auth/registrationStatus')
 
-const changeSupervisor=require('../controllers/auth/changeSupervisor')
+const changeSupervisor = require('../controllers/auth/changeSupervisor')
 
-const putAttendence=require('../controllers/auth/putAttendence')
+const putAttendence = require('../controllers/auth/putAttendence')
 
-const supervisorDetails=require('../controllers/auth/supervisorRegistration')
+const supervisorDetails = require('../controllers/auth/supervisorRegistration')
 
-const supervisorLogin=require('../controllers/auth/supervisorLogin')
+const supervisorLogin = require('../controllers/auth/supervisorLogin')
 
-const AssignWorkToSupervisor=require('../controllers/auth/AssignWorkToSupervisor')
-
-
+const AssignWorkToSupervisor = require('../controllers/auth/AssignWorkToSupervisor')
 
 const {
   validateRegister,
   validateVerify,
   validateForgotPassword,
-  validateResetPassword,
-  validateLogin
+  validateResetPassword
 } = require('../controllers/auth/validators')
 
-const validation= require('../controllers/auth/validators/employeeValidator')
+const validation = require('../controllers/auth/validators/employeeValidator')
 /*
  * Auth routes
  */
@@ -64,25 +61,35 @@ const validation= require('../controllers/auth/validators/employeeValidator')
 /*
  * Register route
  */
-router.post('/register',
+router.post('/register', trimRequest.all, validateRegister, register)
+
+router.post(
+  '/registerEmployee',
   trimRequest.all,
-  validateRegister,
-  register)
-
-
-router.post('/registerEmployee', trimRequest.all, validation.employeeValidator, registerEmployee.registerEmployee)
+  validation.employeeValidator,
+  registerEmployee.registerEmployee
+)
 
 router.get('/date', trimRequest.all, date.date)
 
+router.get(
+  '/registrationStatus',
+  trimRequest.all,
+  registrationStatus.registrationStatuss
+)
+router.get(
+  '/registrationStatus/:id',
+  trimRequest.all,
+  registrationStatus.registrationStatuss
+)
 
-router.get('/registrationStatus', trimRequest.all, registrationStatus.registrationStatuss)
-router.get('/registrationStatus/:id', trimRequest.all, registrationStatus.registrationStatuss)
-
-
-router.post('/supervisorRegistration', trimRequest.all, supervisorDetails.create)
+router.post(
+  '/supervisorRegistration',
+  trimRequest.all,
+  supervisorDetails.create
+)
 
 router.post('/supervisorLogin', trimRequest.all, supervisorLogin.login)
-
 
 router.post('/markAttendence', trimRequest.all, markAttendence.markAttendence)
 
@@ -90,28 +97,64 @@ router.put('/markAttendence', trimRequest.all, putAttendence.putAttendence)
 
 router.post('/addWork', trimRequest.all, addWork.addWork)
 
+router.get(
+  '/getEmployeeAttendence/:id',
+  trimRequest.all,
+  getAttendence.getAttendence
+)
+router.get(
+  '/getEmployeeAttendence',
+  trimRequest.all,
+  getAttendence.getAttendence
+)
 
+router.get(
+  '/getEmployeeProfile',
+  trimRequest.all,
+  getEmployeeProfile.getEmployeeProfile
+)
+router.get(
+  '/getEmployeeProfile/:id',
+  trimRequest.all,
+  getEmployeeProfile.getEmployeeProfile
+)
 
-router.get('/getEmployeeAttendence/:id', trimRequest.all,getAttendence.getAttendence )
-router.get('/getEmployeeAttendence', trimRequest.all,getAttendence.getAttendence )
+router.get(
+  '/getMyEmployeesAttendence',
+  trimRequest.all,
+  getMyEmployeesAttendence.getMyEmployeesAttendence
+)
+router.get(
+  '/getMyEmployeesAttendence/:id/:workId/:dateTime',
+  trimRequest.all,
+  getMyEmployeesAttendence.getMyEmployeesAttendence
+)
 
+router.get('/getAttachedWork', trimRequest.all, getAttachedWork.getAttachedWork)
+router.get(
+  '/getAttachedWork/:id',
+  trimRequest.all,
+  getAttachedWork.getAttachedWork
+)
 
-router.get('/getEmployeeProfile', trimRequest.all,getEmployeeProfile.getEmployeeProfile )
-router.get('/getEmployeeProfile/:id', trimRequest.all,getEmployeeProfile.getEmployeeProfile )
+router.get('/getWorkDetails', trimRequest.all, getWorkDetails.getWorkDetails)
+router.get(
+  '/getWorkDetails/:id',
+  trimRequest.all,
+  getWorkDetails.getWorkDetails
+)
 
-router.get('/getMyEmployeesAttendence', trimRequest.all,getMyEmployeesAttendence.getMyEmployeesAttendence )
-router.get('/getMyEmployeesAttendence/:id/:workId/:dateTime', trimRequest.all,getMyEmployeesAttendence.getMyEmployeesAttendence )
+router.post(
+  '/changeSupervisor',
+  trimRequest.all,
+  changeSupervisor.changeSupervisor
+)
 
-router.get('/getAttachedWork', trimRequest.all,getAttachedWork.getAttachedWork)
-router.get('/getAttachedWork/:id', trimRequest.all,getAttachedWork.getAttachedWork )
-
-router.get('/getWorkDetails', trimRequest.all,getWorkDetails.getWorkDetails)
-router.get('/getWorkDetails/:id', trimRequest.all,getWorkDetails.getWorkDetails )
-
-
-router.post('/changeSupervisor', trimRequest.all,changeSupervisor.changeSupervisor )
-
-router.post('/AssignWorkToSupervisor', trimRequest.all,AssignWorkToSupervisor.AssignWorkToSupervisor )
+router.post(
+  '/AssignWorkToSupervisor',
+  trimRequest.all,
+  AssignWorkToSupervisor.AssignWorkToSupervisor
+)
 
 // router.post('/register', trimRequest.all, validateRegister, register)
 /*
@@ -143,6 +186,11 @@ router.get(
 /*
  * Login route
  */
-router.post('/login', trimRequest.all, validateLogin, login)
+router.post(
+  '/login',
+  trimRequest.all,
+  // validateLogin,
+  login
+)
 
 module.exports = router

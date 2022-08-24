@@ -7,6 +7,7 @@ const { checkPermissions } = require('./checkPermissions')
 const { findForgotPassword } = require('./findForgotPassword')
 const { findUser } = require('./findUser')
 const { findUserById } = require('./findUserById')
+const { findUserByEmpId } = require('./findUserByEmpId')
 const { findUserToResetPassword } = require('./findUserToResetPassword')
 const { forgotPasswordResponse } = require('./forgotPasswordResponse')
 const { generateToken } = require('./generateToken')
@@ -34,6 +35,7 @@ module.exports = {
   findForgotPassword,
   findUser,
   findUserById,
+  findUserByEmpId,
   findUserToResetPassword,
   forgotPasswordResponse,
   generateToken,

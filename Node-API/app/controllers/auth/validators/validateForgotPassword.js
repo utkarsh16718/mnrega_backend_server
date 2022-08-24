@@ -5,7 +5,7 @@ const { check } = require('express-validator')
  * Validates forgot password request
  */
 const validateForgotPassword = [
-  check('email')
+  check('empId')
     .exists()
     .withMessage('MISSING')
     .not()
