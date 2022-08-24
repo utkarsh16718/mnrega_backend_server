@@ -45,9 +45,9 @@ const employeeRegistration = new mongoose.Schema(
 
     },
     registrationVideoLink:{
-      Type:String,
+      type:String,
       default:"",
-    },
+    }
 
  
   })
