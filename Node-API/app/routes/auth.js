@@ -7,11 +7,11 @@ const requireAuth = passport.authenticate('jwt', {
 })
 const trimRequest = require('trim-request')
 
-require('dotenv/config');
+require('dotenv/config')
 const aws = require('aws-sdk')
 const multer = require('multer')
-const multerS3 = require('multer-s3');
-const { S3Client } = require('@aws-sdk/client-s3');
+const multerS3 = require('multer-s3')
+const { S3Client } = require('@aws-sdk/client-s3')
 
 const {
   register,
@@ -24,16 +24,13 @@ const {
 } = require('../controllers/auth')
 const markAttendence = require('../controllers/auth/markAttendence')
 
-const reportSupervisorSchema = require('../controllers/auth/reportSupervisorSchema')
+// const reportSupervisorSchema = require('../controllers/auth/reportSupervisorSchema')
 
 const postTrackWork = require('../controllers/auth/postTrackWork')
 
 const putTrackWork = require('../controllers/auth/putTrackWork')
 
 const getTrackWork = require('../controllers/auth/getTrackWork')
-
-
-
 
 const date = require('../controllers/auth/date')
 
@@ -168,52 +165,32 @@ router.post(
   trimRequest.all,
   changeSupervisor.changeSupervisor
 )
-router.post(
-  '/reportSupervisor',
-  trimRequest.all,
-  reportSupervisorSchema.reportSupervisorSchema)
+// router.post(
+//   '/reportSupervisor',
+//   trimRequest.all,
+//   reportSupervisorSchema.reportSupervisorSchema)
 
 router.post(
   '/AssignWorkToSupervisor',
   trimRequest.all,
   AssignWorkToSupervisor.AssignWorkToSupervisor
 )
-router.post(
-  '/postTrackWork',
-  trimRequest.all,
-  postTrackWork.postTrackWork
-)
-router.put(
-  '/putTrackWork',
-  trimRequest.all,
-  putTrackWork.putTrackWork
-)
-router.get(
-  '/getTrackWork',
-  trimRequest.all,
-  getTrackWork.getTrackWork
-)
-router.get(
-  '/getTrackWork/:id',
-  trimRequest.all,
-  getTrackWork.getTrackWork
-)
+router.post('/postTrackWork', trimRequest.all, postTrackWork.postTrackWork)
+router.put('/putTrackWork', trimRequest.all, putTrackWork.putTrackWork)
+router.get('/getTrackWork', trimRequest.all, getTrackWork.getTrackWork)
+router.get('/getTrackWork/:id', trimRequest.all, getTrackWork.getTrackWork)
 
 aws.config.update({
   secretAccessKey: process.env.ACCESS_SECRET,
   accessKeyId: process.env.ACCESS_KEY,
-  region: process.env.REGION,
-
-});
+  region: process.env.REGION
+})
 // const BUCKET = process.env.BUCKET
-router.post('/upload', upload.single('file'), async  (req, res)=>  {
-
+router.post('/upload', upload.single('file'), async (req, res) => {
   console.log(req.file)
 
-  res.send("Successfully uploaded " + req.file.location + " location !")
+  res.send({ url: req.file.location })
   // console.log(req.file.etag)
-
-
 })
 // router.post('/register', trimRequest.all, validateRegister, register)
 /*
