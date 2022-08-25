@@ -15,21 +15,9 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "",
-							"value": "",
-							"type": "text",
-							"disabled": true
-						},
-						{
 							"key": "supervisorId",
 							"value": "3",
 							"type": "text"
-						},
-						{
-							"key": "dateTime",
-							"value": "",
-							"type": "text",
-							"disabled": true
 						},
 						{
 							"key": "WorkLocation",
@@ -45,28 +33,18 @@
 							"key": "groupPhotoUrl",
 							"value": "www.google.com",
 							"type": "text"
-						},
-						{
-							"key": "city",
-							"value": "gkwjn",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "superviserId",
-							"value": "eggg",
-							"type": "text",
-							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/markAttendence",
+					"raw": "http://54.202.17.76/markAttendence",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54",
+						"202",
+						"17",
+						"76"
 					],
-					"port": "3000",
 					"path": [
 						"markAttendence"
 					]
@@ -80,19 +58,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/getEmployeeProfile?empId=1",
+					"raw": "http://54.202.17.76/getEmployeeProfile?empId=2",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54",
+						"202",
+						"17",
+						"76"
 					],
-					"port": "3000",
 					"path": [
 						"getEmployeeProfile"
 					],
 					"query": [
 						{
 							"key": "empId",
-							"value": "1"
+							"value": "2"
 						}
 					]
 				}
@@ -109,25 +89,13 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "adarsh Utkarsh Tiwari",
+							"value": "qwert",
 							"type": "text"
 						},
 						{
 							"key": "empId",
-							"value": "1",
+							"value": "12345D0",
 							"type": "text"
-						},
-						{
-							"key": "middleName",
-							"value": "huk",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "lastName",
-							"value": "drhd",
-							"type": "text",
-							"disabled": true
 						},
 						{
 							"key": "aadharNumber",
@@ -136,7 +104,7 @@
 						},
 						{
 							"key": "phone",
-							"value": "9631464544",
+							"value": "964",
 							"type": "text"
 						},
 						{
@@ -156,7 +124,12 @@
 						},
 						{
 							"key": "doB",
-							"value": "14032002",
+							"value": "140302",
+							"type": "text"
+						},
+						{
+							"key": "registrationVideoLink",
+							"value": "https://videotofotos.s3.us-west-2.amazonaws.com/registrationVideo/example2.mp4",
 							"type": "text"
 						}
 					]
@@ -168,6 +141,77 @@
 						"localhost"
 					],
 					"port": "3000",
+					"path": [
+						"registerEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/registerEmployee Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Ab",
+							"type": "text"
+						},
+						{
+							"key": "empId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "aadharNumber",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "964",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "muzaffarpure",
+							"type": "text"
+						},
+						{
+							"key": "supervisorId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "workId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "doB",
+							"value": "140302",
+							"type": "text"
+						},
+						{
+							"key": "registrationVideoLink",
+							"value": "https://videotofotos.s3.us-west-2.amazonaws.com/registrationVideo/example2.mp4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://54.202.17.76/registerEmployee",
+					"protocol": "http",
+					"host": [
+						"54",
+						"202",
+						"17",
+						"76"
+					],
 					"path": [
 						"registerEmployee"
 					]
@@ -240,12 +284,14 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/addWork",
+					"raw": "http://54.202.17.76/addWork",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54",
+						"202",
+						"17",
+						"76"
 					],
-					"port": "3000",
 					"path": [
 						"addWork"
 					]
@@ -342,7 +388,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"attendanceId\":\"4d886cb8427ac74d7cd0701315b35435\",\r\n        \"presentemployeeIds\": [2,5,6]}",
+					"raw": "    {\r\n        \"attendanceId\":\"475a3769b273fbb72cac3622afa5229c\",\r\n        \"presentemployeeIds\": [2,5,6]}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -350,12 +396,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/markAttendence",
+					"raw": "http://54.202.17.76/markAttendence",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"54",
+						"202",
+						"17",
+						"76"
 					],
-					"port": "3000",
 					"path": [
 						"markAttendence"
 					],
@@ -481,6 +529,190 @@
 						{
 							"key": "dateTime",
 							"value": "2022-08-20T07:58:03.493Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/registerEmployee Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "qwert",
+							"type": "text"
+						},
+						{
+							"key": "empId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "aadharNumber",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "964",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "muzaffarpure",
+							"type": "text"
+						},
+						{
+							"key": "supervisorId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "workId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "doB",
+							"value": "140302",
+							"type": "text"
+						},
+						{
+							"key": "registrationVideoLink",
+							"value": "https://videotofotos.s3.us-west-2.amazonaws.com/registrationVideo/example2.mp4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://54.202.17.76/registerEmployee",
+					"protocol": "http",
+					"host": [
+						"54",
+						"202",
+						"17",
+						"76"
+					],
+					"path": [
+						"registerEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/postTrackWork",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "videoLink",
+							"value": "abcdd",
+							"type": "text"
+						},
+						{
+							"key": "supervisorId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "workId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "workHour",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "WorkLocation",
+							"value": "MIT",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/postTrackWork",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"postTrackWork"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/putTrackWork",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "trackId",
+							"value": "2a1b5186ff80f6a81c46940cfc8ecf1d",
+							"type": "text"
+						},
+						{
+							"key": "totalHumanCount",
+							"value": "56",
+							"type": "text"
+						},
+						{
+							"key": "totalHumanWorkingCount",
+							"value": "75",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/putTrackWork",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"putTrackWork"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/getTrackWork?trackId=2a1b5186ff80f6a81c46940cfc8ecf1d",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/getTrackWork?trackId=2a1b5186ff80f6a81c46940cfc8ecf1d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getTrackWork"
+					],
+					"query": [
+						{
+							"key": "trackId",
+							"value": "2a1b5186ff80f6a81c46940cfc8ecf1d"
 						}
 					]
 				}
