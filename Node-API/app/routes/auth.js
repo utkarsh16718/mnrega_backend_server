@@ -7,6 +7,12 @@ const requireAuth = passport.authenticate('jwt', {
 })
 const trimRequest = require('trim-request')
 
+require('dotenv/config');
+const aws = require('aws-sdk')
+const multer = require('multer')
+const multerS3 = require('multer-s3');
+const { S3Client } = require('@aws-sdk/client-s3');
+
 const {
   register,
   verify,
@@ -18,7 +24,7 @@ const {
 } = require('../controllers/auth')
 const markAttendence = require('../controllers/auth/markAttendence')
 
-// const reportSupervisorSchema = require('../controllers/auth/reportSupervisorSchema')
+const reportSupervisorSchema = require('../controllers/auth/reportSupervisorSchema')
 
 const postTrackWork = require('../controllers/auth/postTrackWork')
 
@@ -56,6 +62,8 @@ const supervisorDetails = require('../controllers/auth/supervisorRegistration')
 const supervisorLogin = require('../controllers/auth/supervisorLogin')
 
 const AssignWorkToSupervisor = require('../controllers/auth/AssignWorkToSupervisor')
+
+const upload = require('../controllers/auth/uploadFile')
 
 const {
   validateRegister,
@@ -160,10 +168,10 @@ router.post(
   trimRequest.all,
   changeSupervisor.changeSupervisor
 )
-// router.post(
-//   '/reportSupervisor',
-//   trimRequest.all,
-//   reportSupervisorSchema.reportSupervisorSchema)
+router.post(
+  '/reportSupervisor',
+  trimRequest.all,
+  reportSupervisorSchema.reportSupervisorSchema)
 
 router.post(
   '/AssignWorkToSupervisor',
@@ -191,6 +199,22 @@ router.get(
   getTrackWork.getTrackWork
 )
 
+aws.config.update({
+  secretAccessKey: process.env.ACCESS_SECRET,
+  accessKeyId: process.env.ACCESS_KEY,
+  region: process.env.REGION,
+
+});
+// const BUCKET = process.env.BUCKET
+router.post('/upload', upload.single('file'), async  (req, res)=>  {
+
+  console.log(req.file)
+
+  res.send("Successfully uploaded " + req.file.location + " location !")
+  // console.log(req.file.etag)
+
+
+})
 // router.post('/register', trimRequest.all, validateRegister, register)
 /*
  * Verify route
