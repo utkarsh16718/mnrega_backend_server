@@ -18,6 +18,17 @@ const {
 } = require('../controllers/auth')
 const markAttendence = require('../controllers/auth/markAttendence')
 
+const reportSupervisorSchema = require('../controllers/auth/reportSupervisorSchema')
+
+const postTrackWork = require('../controllers/auth/postTrackWork')
+
+const putTrackWork = require('../controllers/auth/putTrackWork')
+
+const getTrackWork = require('../controllers/auth/getTrackWork')
+
+
+
+
 const date = require('../controllers/auth/date')
 
 const addWork = require('../controllers/auth/addWork')
@@ -149,11 +160,35 @@ router.post(
   trimRequest.all,
   changeSupervisor.changeSupervisor
 )
+router.post(
+  '/reportSupervisor',
+  trimRequest.all,
+  reportSupervisorSchema.reportSupervisorSchema)
 
 router.post(
   '/AssignWorkToSupervisor',
   trimRequest.all,
   AssignWorkToSupervisor.AssignWorkToSupervisor
+)
+router.post(
+  '/postTrackWork',
+  trimRequest.all,
+  postTrackWork.postTrackWork
+)
+router.put(
+  '/putTrackWork',
+  trimRequest.all,
+  putTrackWork.putTrackWork
+)
+router.get(
+  '/getTrackWork',
+  trimRequest.all,
+  getTrackWork.getTrackWork
+)
+router.get(
+  '/getTrackWork/:id',
+  trimRequest.all,
+  getTrackWork.getTrackWork
 )
 
 // router.post('/register', trimRequest.all, validateRegister, register)
