@@ -4,7 +4,7 @@
 const NewUser = require('../../models/attendanceDetails')
 const crypto = require("crypto");
 const { handleError } = require('../../middleware/utils')
-const id = crypto.randomBytes(16).toString("hex");
+// const id = crypto.randomBytes(16).toString("hex");
 
 
 
@@ -14,7 +14,7 @@ const id = crypto.randomBytes(16).toString("hex");
  * @param {Object} res - response object
  */
 
-const markAttendence = async (req, res) => {
+const markAttendence = async (req, res) => { 
     try {
 
         const attendanceId = crypto.randomBytes(16).toString("hex");

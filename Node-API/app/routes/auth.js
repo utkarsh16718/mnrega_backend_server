@@ -18,7 +18,7 @@ const {
 } = require('../controllers/auth')
 const markAttendence = require('../controllers/auth/markAttendence')
 
-const reportSupervisorSchema = require('../controllers/auth/reportSupervisorSchema')
+// const reportSupervisorSchema = require('../controllers/auth/reportSupervisorSchema')
 
 const postTrackWork = require('../controllers/auth/postTrackWork')
 
@@ -160,10 +160,10 @@ router.post(
   trimRequest.all,
   changeSupervisor.changeSupervisor
 )
-router.post(
-  '/reportSupervisor',
-  trimRequest.all,
-  reportSupervisorSchema.reportSupervisorSchema)
+// router.post(
+//   '/reportSupervisor',
+//   trimRequest.all,
+//   reportSupervisorSchema.reportSupervisorSchema)
 
 router.post(
   '/AssignWorkToSupervisor',

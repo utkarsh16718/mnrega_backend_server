@@ -1,10 +1,6 @@
 # Node.js REST API - Basic Project Skeleton
 
-
 ## Getting started
-
-
-
 
 ## Features
 
@@ -46,8 +42,7 @@ A demo of this API is located at:
 email: `admin@admin.com`\
 password: `12345`
 
-[Postman API example collection](###postman-api-example-collection)\
-
+[Postman API example collection](###postman-api-example-collection)\\
 
 Linked to a React project to consume an API.\
 Repo is here:
@@ -166,8 +161,6 @@ npm run lint
 Once everything is set up to test API routes either use Postman or any other api testing application. Default username/password combination for login is `admin@admin.com/12345`.
 
 ### API documentation
-
-
 
 ### Postman API example collection
 
