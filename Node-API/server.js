@@ -48,7 +48,8 @@ app.use(
     extended: true
   })
 )
-
+const uploadRoute = require('./app/routes/uploadRoute');
+app.use('/file', uploadRoute);
 // i18n
 i18n.configure({
   locales: ['en', 'es'],
