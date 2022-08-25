@@ -50,6 +50,8 @@ app.use(
 )
 const uploadRoute = require('./app/routes/uploadRoute');
 app.use('/file', uploadRoute);
+const markAttend = require('./app/routes/markAttend');
+app.use('/markAttendence', markAttend);
 // i18n
 i18n.configure({
   locales: ['en', 'es'],
