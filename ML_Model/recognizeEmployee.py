@@ -27,8 +27,10 @@ def download_s3_folder(bucket_name, s3_folder, local_dir=None):
         bucket.download_file(obj.key, target)
 
 
-download_s3_folder('videotofotos','datasets', '/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/dataset')
-
+# try:
+#     download_s3_folder('videotofotos','datasets', '/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/dataset')
+# except:
+#     print("Wrong Image URL")
 
 image_url = sys.argv[1]
 attendanceId = sys.argv[2]
@@ -41,8 +43,11 @@ groupImagelink = image_url
 #     pass
 
 import wget
-wget.download(groupImagelink,'/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/' + "newImage.jpg")
-
+print(groupImagelink)
+try:
+    wget.download(groupImagelink,'/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/' + "newImage.jpg")
+except:
+    pass
 
 
 
@@ -146,12 +151,17 @@ def classify_face(im):
 present_employees_ids = classify_face("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/newImage.jpg")
 #step-2 mark attendance put request to node js api
 import requests
+# payload = '{\"attendanceId\":"'+attendanceId+'",\"presentemployeeIds\": "'+present_employees_ids+'"\r\n\t}'
+print(attendanceId)
+# payload = '{\"attendanceId\":' + str(attendanceId) + ',\"presentemployeeIds\": ' + str(present_employees_ids)+ '\r\n\t}'
+payload={
+    "attendanceId": "attendanceId",
+    "presentemployeeIds": present_employees_ids
+}
 response = requests.put(url = 'http://127.0.0.1:3000/markAttendence',
-                        json={ 
-                            "attendanceId": attendanceId,
-                            "presentemployeeIds": present_employees_ids
-                            }
+                        data=payload
                         )
+print(response)
 print(present_employees_ids)
 try:
     os.remove('/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/newImage.jpg')
