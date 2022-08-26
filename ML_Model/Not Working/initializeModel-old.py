@@ -77,6 +77,6 @@ model = model.save('face_rec_model.h5')
 
 
 # try:
-#     shutil.rmtree('/home/ubuntu/desktop/mnrega_backend_server/ML_Model/datasets')
+#     shutil.rmtree('/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/datasets')
 # except OSError as e:
 #     print("Error: %s - %s." % (e.filename, e.strerror))

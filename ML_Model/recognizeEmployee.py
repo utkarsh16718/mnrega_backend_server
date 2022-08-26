@@ -28,7 +28,7 @@ def download_s3_folder(bucket_name, s3_folder, local_dir=None):
 
 
 # try:
-#     download_s3_folder('videotofotos','datasets', '/home/ubuntu/desktop/mnrega_backend_server/ML_Model/dataset')
+#     download_s3_folder('videotofotos','datasets', '/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/dataset')
 # except:
 #     print("Wrong Image URL")
 
@@ -37,7 +37,7 @@ attendanceId = sys.argv[2]
 groupImagelink = image_url
 
 # try:
-#     os.mkdir("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/temp")
+#     os.mkdir("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/temp")
 # except FileExistsError:
 #     # directory already exists
 #     pass
@@ -45,7 +45,7 @@ groupImagelink = image_url
 import wget
 print(groupImagelink)
 try:
-    wget.download(groupImagelink,'/home/ubuntu/desktop/mnrega_backend_server/ML_Model/' + "newImage.jpg")
+    wget.download(groupImagelink,'/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/' + "newImage.jpg")
 except:
     pass
 
@@ -69,10 +69,10 @@ def get_encoded_faces():
     """
     encoded = {}
 
-    for dirpath, dnames, fnames in os.walk("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/dataset"):
+    for dirpath, dnames, fnames in os.walk("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/dataset"):
         for f in fnames:
-            if f.endswith(".jpg") or f.endswith(".png"):
-                face = fr.load_image_file("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/dataset/" + f)
+            if f.endswith(".jpg") or f.endswith(".jpeg"):
+                face = fr.load_image_file("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/dataset/" + f)
                 encoding = fr.face_encodings(face)[0]
                 encoded[f.split(".")[0]] = encoding
 
@@ -83,7 +83,7 @@ def unknown_image_encoded(img):
     """
     encode a face given the file name
     """
-    face = fr.load_image_file("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/dataset/" + img)
+    face = fr.load_image_file("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/dataset/" + img)
     encoding = fr.face_encodings(face)[0]
 
     return encoding
@@ -142,6 +142,17 @@ def classify_face(im):
     l = list(set(face_names))
     print(l)
     presnt_emp =l
+    import requests
+    # payload = '{\"attendanceId\":"'+attendanceId+'",\"presentemployeeIds\": "'+present_employees_ids+'"\r\n\t}'
+    # print(attendanceId)
+    # payload = '{\"attendanceId\":' + str(attendanceId) + ',\"presentemployeeIds\": ' + str(present_employees_ids)+ '\r\n\t}'
+    payload={
+        "attendanceId": attendanceId,
+        "presentemployeeIds": presnt_emp
+    }
+    response = requests.put(url = 'http://127.0.0.1:3000/markAttendence',
+                            data=payload
+                            )
     print("No. of present employees :" + str(len(l)))
     # print("PRESENT EMOPLYEE IDS",end="")
     # Display the resulting image
@@ -150,23 +161,12 @@ def classify_face(im):
     if cv2.waitKey(1) & 0xFF == ord('q'):
         return face_names 
     
-present_employees_ids = classify_face("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/newImage.jpg")
+present_employees_ids = classify_face("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/newImage.jpg")
 #step-2 mark attendance put request to node js api
-import requests
-# payload = '{\"attendanceId\":"'+attendanceId+'",\"presentemployeeIds\": "'+present_employees_ids+'"\r\n\t}'
-# print(attendanceId)
-# payload = '{\"attendanceId\":' + str(attendanceId) + ',\"presentemployeeIds\": ' + str(present_employees_ids)+ '\r\n\t}'
-payload={
-    "attendanceId": "attendanceId",
-    "presentemployeeIds": present_employees_ids
-}
-response = requests.put(url = 'http://127.0.0.1:3000/markAttendence',
-                        data=payload
-                        )
 # print(response)
 # print("PRESENT EMOPLYEE IDS",end="")
 # print(present_employees_ids)
 try:
-    os.remove('/home/ubuntu/desktop/mnrega_backend_server/ML_Model/newImage.jpg')
+    os.remove('/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/newImage.jpg')
 except OSError as e:
     print("Error: %s - %s." % (e.filename, e.strerror))
