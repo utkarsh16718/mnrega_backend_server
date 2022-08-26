@@ -7,7 +7,7 @@ const getMyEmployeesAttendence = async (req, res) => {
     const { workId, supervisorId } = req.query
 
     let attendances = await NewUser.find({
-      workId,
+      // workId,
       supervisorId
     }).select('presentemployeeIds')
 
