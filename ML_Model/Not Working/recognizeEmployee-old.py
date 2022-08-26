@@ -18,24 +18,24 @@ image_url = sys.argv[1]
 attendanceId = sys.argv[2]
 
 try:
-    os.mkdir("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/tmp")
+    os.mkdir("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/tmp")
 except FileExistsError:
     # directory already exists
     pass
 
-image_path = "/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/tmp/image_temp.jpg"
+image_path = "/home/ubuntu/desktop/mnrega_backend_server/ML_Model/tmp/image_temp.jpg"
 image = wget.download(str(image_url),image_path)
 
 
-with open("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/label.csv") as f:
+with open("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/label.csv") as f:
     reader = csv.reader(f)
     my_list = list(reader)
     classes = my_list[0]
 img = image_path
-model = load_model("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/face_rec_model.h5")
+model = load_model("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/face_rec_model.h5")
 
 detector = MTCNN()
-model = load_model("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/face_rec_model.h5")
+model = load_model("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/face_rec_model.h5")
 
 img = image_path
 img = cv2.imread(img)
@@ -84,7 +84,7 @@ response = requests.put(url = 'http://127.0.0.1:3000/markAttendence',
 print(present_employees_ids)
 os.remove(image_path)
 try:
-    shutil.rmtree('/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/tmp/')
+    shutil.rmtree('/home/ubuntu/desktop/mnrega_backend_server/ML_Model/tmp/')
 except OSError as e:
     print("Error: %s - %s." % (e.filename, e.strerror))
 

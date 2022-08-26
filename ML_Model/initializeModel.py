@@ -30,7 +30,7 @@ import matplotlib.pyplot as plt
 
 
 
-train_dir = "/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/datasets"
+train_dir = "/home/ubuntu/desktop/mnrega_backend_server/ML_Model/datasets"
 
 ## important constants
 

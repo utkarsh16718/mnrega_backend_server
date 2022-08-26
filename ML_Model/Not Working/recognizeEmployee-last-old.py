@@ -22,15 +22,15 @@ img = imageio.imread(image_url)
 
 
 
-with open("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/label.csv") as f:
+with open("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/label.csv") as f:
     reader = csv.reader(f)
     my_list = list(reader)
     classes = my_list[0]
 
-model = load_model("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/face_rec_model.h5")
+model = load_model("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/face_rec_model.h5")
 
 detector = MTCNN()
-model = load_model("/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/face_rec_model.h5")
+model = load_model("/home/ubuntu/desktop/mnrega_backend_server/ML_Model/face_rec_model.h5")
  
 
 present_employees_ids = []

@@ -20,7 +20,7 @@ const markAttendence = async (req, res) => {
         const attendanceId = crypto.randomBytes(16).toString("hex");
         const { supervisorId, WorkLocation, workId, groupPhotoUrl } = req.body;
         // The path to your python script
-        var myPythonScript = "/home/anon/Documents/GitHub/mnrega_backend_server/ML_Model/recognizeEmployee.py";
+        var myPythonScript = "/home/ubuntu/desktop/mnrega_backend_server/ML_Model/recognizeEmployee.py";
         // Provide the path of the python executable, if python is available as environment variable then you can use only "python"
         var pythonExecutable = "python3";
 
